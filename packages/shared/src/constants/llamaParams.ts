@@ -1,0 +1,137 @@
+export interface LlamaParam {
+  key: string;
+  label: string;
+  description: string;
+  type: 'number' | 'string' | 'boolean';
+  defaultValue: number | string | boolean;
+  min?: number;
+  max?: number;
+  step?: number;
+  group: 'performance' | 'sampling' | 'memory' | 'network';
+}
+
+export const LLAMA_PARAMS: LlamaParam[] = [
+  {
+    key: 'contextSize',
+    label: 'Context Size',
+    description: 'Size of the prompt context (0 = loaded from model)',
+    type: 'number',
+    defaultValue: 4096,
+    min: 0,
+    max: 131072,
+    step: 256,
+    group: 'performance',
+  },
+  {
+    key: 'threads',
+    label: 'Threads',
+    description: 'Number of threads to use for generation',
+    type: 'number',
+    defaultValue: 4,
+    min: 1,
+    max: 128,
+    step: 1,
+    group: 'performance',
+  },
+  {
+    key: 'gpuLayers',
+    label: 'GPU Layers',
+    description: 'Number of layers to store in VRAM (-ngl)',
+    type: 'number',
+    defaultValue: 99,
+    min: 0,
+    max: 999,
+    step: 1,
+    group: 'performance',
+  },
+  {
+    key: 'batchSize',
+    label: 'Batch Size',
+    description: 'Logical batch size for prompt processing',
+    type: 'number',
+    defaultValue: 2048,
+    min: 1,
+    max: 16384,
+    step: 256,
+    group: 'performance',
+  },
+  {
+    key: 'temperature',
+    label: 'Temperature',
+    description: 'Sampling temperature (0 = deterministic)',
+    type: 'number',
+    defaultValue: 0.7,
+    min: 0,
+    max: 2,
+    step: 0.05,
+    group: 'sampling',
+  },
+  {
+    key: 'topP',
+    label: 'Top P',
+    description: 'Top-p sampling cutoff',
+    type: 'number',
+    defaultValue: 0.9,
+    min: 0,
+    max: 1,
+    step: 0.05,
+    group: 'sampling',
+  },
+  {
+    key: 'topK',
+    label: 'Top K',
+    description: 'Top-k sampling cutoff',
+    type: 'number',
+    defaultValue: 40,
+    min: 0,
+    max: 1000,
+    step: 1,
+    group: 'sampling',
+  },
+  {
+    key: 'repeatPenalty',
+    label: 'Repeat Penalty',
+    description: 'Penalize repeat sequence of tokens',
+    type: 'number',
+    defaultValue: 1.1,
+    min: 0,
+    max: 2,
+    step: 0.05,
+    group: 'sampling',
+  },
+  {
+    key: 'mlock',
+    label: 'Memory Lock',
+    description: 'Force system to keep model in RAM',
+    type: 'boolean',
+    defaultValue: false,
+    group: 'memory',
+  },
+  {
+    key: 'mmap',
+    label: 'Memory Map',
+    description: 'Use mmap for faster model loading',
+    type: 'boolean',
+    defaultValue: true,
+    group: 'memory',
+  },
+  {
+    key: 'host',
+    label: 'Host',
+    description: 'IP address to bind the server to',
+    type: 'string',
+    defaultValue: '127.0.0.1',
+    group: 'network',
+  },
+  {
+    key: 'port',
+    label: 'Port',
+    description: 'Port to listen on',
+    type: 'number',
+    defaultValue: 8080,
+    min: 1,
+    max: 65535,
+    step: 1,
+    group: 'network',
+  },
+];

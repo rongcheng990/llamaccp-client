@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+*.db
+*.db-journal
+*.db-wal
+*.part
+data/
+.vite
+.DS_Store
+*.log
+.novel-assistant/
+.waqu-project/
+AAA/

@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2020"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "..",
+    "paths": {
+      "@llamaccp/shared": ["shared/src/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "references": [{ "path": "../shared" }]
+}
