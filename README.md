@@ -2,6 +2,8 @@
 
 > A modern desktop-style Web GUI for managing llama.cpp server — discover, download, configure and run local LLMs with ease.
 
+**English** | [**中文**](./README_CN.md)
+
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue)
 ![React](https://img.shields.io/badge/React-18-61dafb)
 ![Fastify](https://img.shields.io/badge/Fastify-4-black)
